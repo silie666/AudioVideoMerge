@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ffmpeg</title>
+    {{template "header"}}
+</head>
+<body>
+<div class="page">
+    <header class="header">
+        <nav class="navbar no-margin">
+            <div class="container-fluid">
+                <div class="navbar-holder d-flex align-items-center justify-content-between">
+                    <div class="navbar-header">
+                        <a href="/index" class="navbar-brand d-none d-sm-inline-block">
+                            <div class="brand-text d-none d-lg-inline-block">
+                                <span>ffmpeg</span>
+                            </div>
+                        </a>
+                        <a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="page-content d-flex align-items-stretch">
+        <div style="width: 100%;margin-top: 20px;">
+            {{template "content" .}}
+        </div>
+    </div>
+</div>
+
+</body>
+{{template "footer"}}
+{{template "buttomjs"}}
+<script type="application/javascript">
+    $(document).ready(function () {
+        $("#logout").click(function (e) {
+            $.get("/json/dologout",function(json){
+                if (json.code == 0) {
+                    window.location.href = "/login";
+                } else {
+                    alert(json.msg);
+                }
+            },"json");
+            e.stopPropagation();
+            return false;
+        })
+    })
+</script>
+</html>

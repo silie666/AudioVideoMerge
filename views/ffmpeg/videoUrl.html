@@ -1,0 +1,30 @@
+{{ define "content" }}
+    <div class="card-body">
+        <div class="form-group">
+            <span id = "url">保存中</span>
+            <input id="key" hidden value="{{.key}}">
+        </div>
+    </div>
+{{ end }}
+{{ define "buttomjs" }}
+    <script>
+        var key = $("#key").val()
+        var link = "/getVideoUrl?key=" + key
+        var time_id = setInterval("setUrl()",500);
+        function setUrl() {
+            $.get(link,function(json){
+                if (json.code == 1) {
+                    $("#url").text(json.msg)
+                    clearInterval(time_id)
+                } else if (json.code == 2){
+                    var test = $("#url").text()
+                    $("#url").text(test+".")
+                }else {
+                    $("#url").text("key无效")
+                    clearInterval(time_id)
+                }
+            },"json");
+        }
+    </script>
+{{ end }}
+

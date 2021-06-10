@@ -1,0 +1,39 @@
+{{ define "content" }}
+
+    <section class="dashboard-counts no-padding-bottom no-padding-top">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header d-flex align-items-center">
+{{/*                    <a class="h4" href="/">任务列表 | </a>*/}}
+                    <a class="h4" href="/audioVideoMerge">音视频合成 | </a>
+{{/*                    <a class="h4" href="/videoGif">视频转GIF</a>*/}}
+                </div>
+                <div class="card-body">
+                    <form name="messageForm" class="form-horizontal js-ajax-form" action="/audioVideoMerge" method="post" enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <label for="input-second" class="col-sm-2 control-label">淡出秒数(默认3秒)</label>
+                            <div class="col-md-6 col-sm-10">
+                                <input type="text" class="form-control" id="input-second" name="second" placeholder="请输入秒数" value="">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="audiofile">上传音频</label>
+                            <input type="file" id="audiofile" name="audiofile">
+                        </div>
+                        <div class="form-group">
+                            <label for="videofile">上传视频</label>
+                            <input type="file" id="videofile" name="videofile">
+                        </div>
+                        <button type="submit" class="btn btn-default" onclick="javascript:{this.disabled=true;this.innerHTML='上传中';document.messageForm.submit();}">提交</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{{ end }}
+{{ define "buttomjs" }}
+{{ end }}
