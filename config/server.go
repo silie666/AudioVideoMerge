@@ -8,7 +8,7 @@ func GetConfig() map[string]interface{} {
 	//[基本配置]
 	dbConfig["host"] = "0.0.0.0"  //地址
 	dbConfig["port"] = 8080		//端口
-	dbConfig["tplPath"] = "/files/go/AudioVideoMerge/"	 //模板路径
+	dbConfig["tplPath"] = "E:/20210425/4f466b1a-3b05-401a-b3de-1c0fa0651f23/wyf/go/src/AudioVideoMerge/"	 //模板路径
 
 	//[oss配置]
 	dbConfig["cdn"] = "https://oss.xxxxx.cn"	 //cdn地址
